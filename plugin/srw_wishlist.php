@@ -1,12 +1,17 @@
 <?php
+/**
+ * @package Wishlist | SRW
+ */
 /*
-Plugin Name: srw_wishlist | SRW Engineering
+Plugin Name: Wishlist | SRW
+Plugin URI: https://sapphireroadweddings.com
 */
-add_action('wp_dashboard_setup', function () {
-    wp_add_dashboard_widget('srw_wishlist_widget', 'srw_wishlist', 'srw_wishlist_display_widget');
-    function srw_wishlist_display_widget() {
-        ?>
-        <div id="srw_srw_wishlist_dashboard"></div>
-        <?php
-    }
-});
+function srw_wishlist_shortcode()
+{
+    wp_enqueue_script('srw_wishlist_js', 'http://localhost:3077/bundle.js', '', mt_rand(10, 1000), true);
+
+    return '<div id="srw_wishlist"></div>';
+}
+
+add_shortcode('srw_wishlist', 'srw_wishlist_shortcode');
+
