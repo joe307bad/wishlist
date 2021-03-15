@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
-const HelloWorld = () => <h1>Hellowdwe World</h1>;
+const HelloWorld = ({ nonce }: {nonce: any}) => <h1>{`Hellowdwe World ${nonce}`}</h1>;
 
-ReactDOM.render(<HelloWorld />, document.getElementById('srw_wishlist'))
+// @ts-ignore
+render(<HelloWorld nonce={ajaxnonce} />, document.getElementById('srw_wishlist'))
